@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/login' ,[ApiAuthController::class,'login']); //تسجيل دخول
+Route::post('/register' ,[ApiAuthController::class,'register']); //تسجيل لاول مرا 
 Route::group(['middleware' => 'api.auth'], function () {
     Route::post('/home', [ApiAuthController::class,'home']); // احصل على معلومات المستخدم
     Route::post('/logout', [ApiAuthController::class,'logout']); //أوقع
-    Route::get('/trip', [getTripsController::class,'getTrips']);
 });
+Route::get('/trip', [getTripsController::class,'getTrips']);
 
